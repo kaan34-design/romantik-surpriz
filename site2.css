@@ -1,0 +1,113 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #1a1a2e;
+    color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    opacity: 0;
+    animation: fadeIn 1.5s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+header {
+    background: linear-gradient(rgba(27, 27, 46, 0.8), rgba(27, 27, 46, 0.8)), url('https://images.unsplash.com/photo-1502318217862-aa4e294ba65b?q=80&w=1974&auto=format&fit=crop') no-repeat center center/cover;
+    padding: 100px 20px;
+    color: #fff;
+}
+
+header h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 4rem;
+    margin: 0;
+    color: #f7b2b7;
+}
+
+main {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+section {
+    background-color: #16213e;
+    border-radius: 10px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+h2 {
+    font-family: 'Dancing Script', cursive;
+    color: #f7b2b7;
+    font-size: 2.5rem;
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.photo-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photo-grid img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #f7b2b7;
+}
+
+#reasons ul {
+    list-style: none;
+    padding: 0;
+}
+
+#reasons li {
+    background-color: #0f3460;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+#reasons li:hover {
+    background-color: #e94560;
+}
+
+#timer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.time-box {
+    background-color: #0f3460;
+    padding: 15px;
+    border-radius: 5px;
+    min-width: 80px;
+}
+
+.time-box span {
+    display: block;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #f7b2b7;
+}
+
+footer {
+    padding: 20px;
+    margin-top: 40px;
+    color: #aaa;
+    font-style: italic;
+}
