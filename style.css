@@ -1,144 +1,97 @@
-/* Genel Sayfa Stili */
 body {
-    font-family: 'Comfortaa', cursive;
+    font-family: 'Nunito', sans-serif;
     margin: 0;
-    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    overflow: hidden; /* Dışarı taşan elementleri gizle */
-    position: relative;
-    /* Barbie Temalı Arka Plan */
-    background: linear-gradient(135deg, #ff99cc, #ffccff, #ff99cc);
-    background-image: url('https://www.transparenttextures.com/patterns/stardust.png'); /* Hafif parlaklık efekti */
+    /* Canlı Barbie Pembesi Arka Plan */
+    background: linear-gradient(135deg, #f953c6, #b91d73);
 }
 
-/* Kedi Resimleri */
-.cat {
-    position: absolute;
-    width: 200px;
-    height: auto;
-    border-radius: 20px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
-    border: 4px solid white;
-    animation: float 4s infinite alternate ease-in-out;
-}
-
-.top-left {
-    top: 30px;
-    left: 30px;
-    transform: rotate(-15deg);
-}
-
-.bottom-right {
-    bottom: 30px;
-    right: 30px;
-    transform: rotate(15deg);
-    animation-delay: 1s; /* Animasyonlar aynı anda başlamasın */
-}
-
-/* Kedi Animasyonu */
-@keyframes float {
-    from { transform: translateY(0px) rotate(-15deg); }
-    to { transform: translateY(-20px) rotate(-10deg); }
-}
-.bottom-right {
-    from { transform: translateY(0px) rotate(15deg); }
-    to { transform: translateY(-20px) rotate(10deg); }
-}
-
-/* Ana İçerik Kutusu */
 .container {
-    background-color: rgba(255, 255, 255, 0.9);
+    background: white;
     padding: 40px 50px;
-    border-radius: 25px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
     text-align: center;
-    max-width: 550px;
     width: 90%;
-    z-index: 10;
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    animation: popIn 0.8s ease-out forwards;
+    max-width: 500px;
+    animation: fadeIn 1s ease-in-out;
 }
 
-@keyframes popIn {
-    from { transform: scale(0.7); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-/* Soru Başlığı */
-h1#question {
+#question {
     font-family: 'Pacifico', cursive;
-    color: #e60073; /* Barbie pembesi */
-    font-size: 2.5em; /* Mobil için daha uygun */
+    color: #e60073; /* Koyu pembe */
+    font-size: 2.2em;
     margin-bottom: 30px;
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.1);
 }
 
-/* Butonlar */
 .buttons {
     display: flex;
     justify-content: center;
     gap: 20px;
-    margin-top: 30px;
 }
 
-.cute-button {
-    font-family: 'Comfortaa', cursive;
+.button {
+    font-family: 'Nunito', sans-serif;
     font-weight: 700;
-    padding: 15px 30px;
+    padding: 15px 35px;
     border: none;
     border-radius: 50px;
-    font-size: 1.2em;
+    font-size: 1.1em;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 #yesBtn {
-    background: linear-gradient(45deg, #ff66cc, #ff3399);
+    background: #ff3399; /* Canlı pembe */
     color: white;
 }
 
 #yesBtn:hover {
     transform: scale(1.1);
-    box-shadow: 0 8px 20px rgba(230, 0, 115, 0.4);
+    background: #e60073;
 }
 
 #noBtn {
-    background-color: #f0f0f0;
-    color: #555;
+    background: #f1f1f1;
+    color: #333;
 }
 
-/* Son Mesaj */
 .final-message {
     font-family: 'Pacifico', cursive;
     font-size: 2.5em;
     color: #e60073;
-    animation: fadeInMessage 1s forwards;
 }
 
-@keyframes fadeInMessage {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Gizli Elementler */
 .hidden {
     display: none;
 }
 
-/* Mobil Cihazlar için Ayarlamalar */
-@media (max-width: 600px) {
-    h1#question, .final-message {
-        font-size: 2em;
-    }
-    .cat {
-        width: 100px;
-    }
-    .container {
-        padding: 30px;
-    }
+/* 5. Tıklamadan sonra Evet butonunun alacağı stil */
+.fullscreen-button {
+    position: fixed; /* Sayfayı kaplaması için */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    font-size: 10vw !important; /* Dev yazı boyutu */
+    border-radius: 0; /* Köşeleri düz yap */
+    z-index: 1000; /* Her şeyin üstünde görünsün */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: zoomIn 0.5s ease; /* Büyüme animasyonu */
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.5); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
 }

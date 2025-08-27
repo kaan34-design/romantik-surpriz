@@ -4,40 +4,38 @@ document.addEventListener('DOMContentLoaded', () => {
     const noBtn = document.getElementById('noBtn');
     const questionContainer = document.getElementById('question-container');
     const messageContainer = document.getElementById('message-container');
+    const question = document.getElementById('question');
 
-    // "Hayır" butonuna kaç kere basıldığını saymak için bir sayaç
-    let noClickCount = 0;
-    // "Evet" butonunun başlangıç boyutları
-    let yesButtonSize = 1;
+    let noClickCount = 0; // "Hayır" butonuna tıklama sayacı
 
-    // "Evet" butonuna tıklandığında çalışacak fonksiyon
+    // "Evet" butonuna tıklandığında...
     yesBtn.addEventListener('click', () => {
         // Soru ve butonları gizle
-        questionContainer.classList.add('hidden');
-        // Son mesajı göster
+        questionContainer.style.display = 'none';
+        
+        // Final mesajını göster
         messageContainer.classList.remove('hidden');
     });
 
-    // "Hayır" butonuna tıklandığında çalışacak fonksiyon
+    // "Hayır" butonuna tıklandığında...
     noBtn.addEventListener('click', () => {
-        noClickCount++; // Sayacı bir artır
+        noClickCount++; // Sayacı artır
 
-        // "Evet" butonunu büyüt
-        yesButtonSize += 0.5; // Her tıklamada büyüme miktarını ayarla
-        yesBtn.style.transform = `scale(${yesButtonSize})`;
-        
-        // "Hayır" butonunun metnini değiştirerek onu ikna etmeye çalış
-        const phrases = [
-            "Emin misin? 🥺",
-            "Tekrar düşün...",
-            "Kalbimi kırıyorsun 💔",
-            "Lütfeeen?",
-            "Ama ben seni seviyorum ki...",
-            "Son kararın mı? 😢"
-        ];
-        
-        // Her tıklamada farklı bir yazı göster
-        // Dizinin sonuna gelince başa dönmesi için % operatörünü kullanıyoruz
-        noBtn.innerText = phrases[noClickCount % phrases.length];
+        // "Evet" butonunu her tıklamada büyütmek için ölçeklendirme
+        const scale = 1 + noClickCount * 0.8; // Büyüme oranını buradan ayarlayabilirsin
+        yesBtn.style.transform = `scale(${scale})`;
+
+        // Toplam 5 kez büyüsün
+        if (noClickCount === 5) {
+            // Sadece soruyu gizle
+            question.style.display = 'none';
+            
+            // "Hayır" butonunu tamamen ortadan kaldır
+            noBtn.style.display = 'none';
+
+            // "Evet" butonunu tüm ekranı kaplayan dev bir butona dönüştür
+            yesBtn.classList.add('fullscreen-button');
+            yesBtn.innerText = "TEK SEÇENEK BU!"; // Butonun yazısını değiştir
+        }
     });
 });
