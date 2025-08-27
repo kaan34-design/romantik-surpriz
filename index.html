@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Selinay için Soru</title>
+    <title>Selinay'a Özel 💕</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,16 +11,24 @@
 </head>
 <body>
 
-    <img src="https://images.unsplash.com/photo-1574144611937-017e6015b602?q=80&w=1887&auto=format&fit=crop" alt="Sol Kedi" class="cat-left">
-    <img src="https://images.unsplash.com/photo-1596854332906-81cf80ad30d0?q=80&w=1964&auto=format&fit=crop" alt="Sağ Kedi" class="cat-right">
+    <!-- Minnoş Kediler -->
+    <img src="https://images.unsplash.com/photo-1573865526739-10659fec78a5?q=80&w=1915&auto=format&fit=crop" alt="Sol Üst Kedi" class="cat top-left">
+    <img src="https://images.unsplash.com/photo-1548802673-380ab8ebc7b7?q=80&w=1935&auto=format&fit=crop" alt="Sağ Alt Kedi" class="cat bottom-right">
 
-    <div class="container">
-        <h1 id="question">Selinay, beni seviyor musun?</h1>
-        <div class="buttons">
-            <button id="yesBtn" class="cute-button">Evet</button>
-            <button id="noBtn" class="cute-button">Hayır</button>
+    <div class="container" id="mainContainer">
+        <!-- Başlangıçta görünecek soru ve butonlar -->
+        <div id="question-container">
+            <h1 id="question">Selinay, beni seviyor musun?</h1>
+            <div class="buttons">
+                <button id="yesBtn" class="cute-button">Evet!</button>
+                <button id="noBtn" class="cute-button">Hayır</button>
+            </div>
         </div>
-        <p id="message" class="hidden"></p>
+
+        <!-- Evet'e basınca görünecek mesaj -->
+        <div id="message-container" class="hidden">
+            <h1 class="final-message">Ben de seni seviyorum Selinay bebeğim! ❤️</h1>
+        </div>
     </div>
 
     <script src="script.js"></script>
